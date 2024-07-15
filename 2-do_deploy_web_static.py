@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """
 This module contains the function do_pack that generates a .tgz archive
 from the contents of the web_static folder (fabric script)
@@ -19,6 +19,7 @@ def do_deploy(archive_path):
     # checks if if path exist
     if not os.path.exists(archive_path):
         return False
+
     try:
         # upload archive to /tmp/
         put(archive_path, "/tmp/")
@@ -39,6 +40,6 @@ def do_deploy(archive_path):
         run(f"ln -s /data/web_static/releases/{folder_name}/ /data/web_static/current")
         print("New version deployed")
         return True
-    except Exception as e:
-        print(f"Deployed failed: {e}")
+    except:
+        print("Deployed failed")
         return False
