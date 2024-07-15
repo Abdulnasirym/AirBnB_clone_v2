@@ -10,7 +10,6 @@ from datetime import datetime
 import os
 
 def do_pack():
-
     local("sudo mkdir -p versions")
     date = datetime.now().strftime("%Y%m%d%H%M%S")
     filename = f"versions/web_static_{date}.tgz"
