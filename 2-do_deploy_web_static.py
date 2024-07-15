@@ -5,13 +5,14 @@ archive to the web servers
 """
 
 from fabric.api import put, run, env
-from os.path import exists
+import os
 env.hosts = ['34.229.161.126', '54.146.59.87']
-
+env.user = "ubuntu"
+env.key_filename = "~/.ssh/id_rsa"
 
 def do_deploy(archive_path):
     """distributes an archive to the web servers"""
-    if exists(archive_path) is False:
+    if not os.path.exists(archive_path):
         return False
     try:
         file_n = archive_path.split("/")[-1]
