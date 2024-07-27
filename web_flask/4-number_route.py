@@ -34,7 +34,7 @@ def pythoniscool(text='is cool'):
 
 @app.route('/number/<int:n>', strict_slashes=False)
 def number(n):
-	"""display a number int"""
+	"""display a number n which must be an int"""
 	return "{:d} is a number".format(n)
 
 if __name__ == '__main__':
